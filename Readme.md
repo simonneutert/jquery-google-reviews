@@ -1,4 +1,4 @@
-# jQuery Plugin to display Google Reviews of a (Maps) Place
+# jQuery Plugin to display Google Reviews of a Place on Google Maps
 
 ## Credits
 Inspired by Steven Monson's magnificent article here:
