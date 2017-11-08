@@ -2,7 +2,8 @@
 
 ## Credits
 Inspired by Steven Monson's magnificent article here:
-https://www.launch2success.com/guide/display-google-reviews-website-2017/
+https://www.launch2success.com/guide/display-google-reviews-website-2017/.
+
 [Steven's github](https://github.com/stevenmonson/googleReviews)
 
 I found out, that Stevens code was based on peledies jquery plugin repo:
