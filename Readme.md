@@ -21,7 +21,7 @@ Download the repo and open the `index.html`, but make sure to add a working Goog
 When calling the plugin, you can set a proper place-id, of course :)
 
 these are the optional params for the plugin:
-```
+``` javascript
 jQuery(document).ready(function($) {
   if ($("#google-reviews").length == 0) {
     return
