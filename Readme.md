@@ -6,9 +6,11 @@ https://www.launch2success.com/guide/display-google-reviews-website-2017/ or che
 
 #### Dear beginners and copy-pasters
 
-:octocat: *For those of you, who are new in programming or can only copy-paste, please make sure, that jQuery, the Google Maps API and the .js-file of this plugin are successfully loaded before you add this script to your html page. index.html is a working demo, the comments will guide you :wink:
+:octocat: *For those of you, who are new in programming or can only copy-paste, please make sure, that jQuery, the Google Maps API and the .js-file of this plugin are successfully loaded, before you call this script in your html page.*
 
-## Setup
+*index.html is a working demo, the comments will guide you :wink:*
+
+## Prerequisites
 
 * You must have jQuery in your project: [jQuery](http://jquery.com)
 
@@ -52,5 +54,5 @@ jQuery(document).ready(function($) {
 </script>
 ```
 
-## Pull Requests welcome?
-Yes, please :octocat:
+## Are Pull Requests welcome?
+Yes, of course :octocat:
