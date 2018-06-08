@@ -110,8 +110,8 @@ Thank you guys!
     // the callback is what initiates the rendering if Status returns OK
     var callback = function(place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        console.log(place.opening_hours.open_now);
-        console.log(place.opening_hours.open_now ? "Wir haben geöffnet!" : "Sprechen Sie uns auf den Anrufbeantworter oder schreiben Sie uns eine E-Mail.")
+        // console.log(place.opening_hours.open_now);
+        // console.log(place.opening_hours.open_now ? "Wir haben geöffnet!" : "Sprechen Sie uns auf den Anrufbeantworter oder schreiben Sie uns eine E-Mail.")
         var filtered_reviews = filterReviewsByMinRating(place.reviews);
         renderHeader(settings.header);
         renderReviews(filtered_reviews);
