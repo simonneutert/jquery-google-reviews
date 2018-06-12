@@ -104,6 +104,7 @@ Thank you guys!
     };
 
     // GOOGLE PLACES API CALL STARTS HERE
+    
     // initiate a Google Places Object
     var service = new google.maps.places.PlacesService(target_div);
     // set.getDetails takes 2 arguments: request, callback
