@@ -1,5 +1,9 @@
 # jQuery Plugin to display Google Reviews of a Place on Google Maps
 
+## I do not like jQuery!!!1eleven
+
+The NPM Package is [here](https://github.com/simonneutert/google-maps-reviews) 
+
 ## Credits
 Inspired by Steven Monson's magnificent article here:
 https://www.launch2success.com/guide/display-google-reviews-website-2017/ or check out [Steven's github](https://github.com/stevenmonson/googleReviews). Steven's code is based on [peledies jquery plugin repo](https://github.com/peledies/google-places). So, I simply remixed their work into this repo. *Thank you guys!*
