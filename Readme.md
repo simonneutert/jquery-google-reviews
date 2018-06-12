@@ -8,13 +8,13 @@ https://www.launch2success.com/guide/display-google-reviews-website-2017/ or che
 
 :octocat: *For those of you, who are new in programming or can only copy-paste, please make sure, that jQuery, the Google Maps API and the .js-file of this plugin are successfully loaded, before you call this script in your html page.*
 
-*index.html is a working demo, the comments will guide you :wink:*
+*./demo/index.html is a working demo, the comments will guide you :wink:*
 
 ## Prerequisites
 
 * You must have jQuery in your project: [jQuery](http://jquery.com)
 
-* add the .js and .css of this repo to your project (see index.html for inspiration :wink:)
+* add the .js and .css of this repo to your project (see ./demo/index.html for inspiration :wink:)
 
 * ___if you do not have a working Google Maps API key already:___ create a Google API Key: [https://console.developers.google.com/apis/](https://console.developers.google.com/apis/)
 
