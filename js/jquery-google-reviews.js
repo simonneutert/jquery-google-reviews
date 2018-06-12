@@ -104,7 +104,7 @@ Thank you guys!
     };
 
     // GOOGLE PLACES API CALL STARTS HERE
-    
+
     // initiate a Google Places Object
     var service = new google.maps.places.PlacesService(target_div);
     // set.getDetails takes 2 arguments: request, callback
@@ -116,9 +116,11 @@ Thank you guys!
     var callback = function(place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         var filtered_reviews = filterReviewsByMinRating(place.reviews);
-        renderHeader(settings.header);
-        renderReviews(filtered_reviews);
-        renderFooter(settings.footer);
+        if (filtered_reviews.length > 0) {
+          renderHeader(settings.header);
+          renderReviews(filtered_reviews);
+          renderFooter(settings.footer);
+        }
       }
     }
 
