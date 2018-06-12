@@ -73,12 +73,16 @@ Thank you guys!
     };
 
     var filterReviewsByMinRating = function(reviews) {
-      for (var i = reviews.length - 1; i >= 0; i--) {
-        if (reviews[i].rating < settings.min_rating) {
-          reviews.splice(i, 1);
+      if (reviews === void 0) {
+        return [];
+      } else {
+        for (var i = reviews.length - 1; i >= 0; i--) {
+          if (reviews[i].rating < settings.min_rating) {
+            reviews.splice(i, 1);
+          }
         }
+        return reviews;
       }
-      return reviews;
     };
 
     var renderReviews = function(reviews) {
@@ -110,8 +114,6 @@ Thank you guys!
     // the callback is what initiates the rendering if Status returns OK
     var callback = function(place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        // console.log(place.opening_hours.open_now);
-        // console.log(place.opening_hours.open_now ? "Wir haben geöffnet!" : "Sprechen Sie uns auf den Anrufbeantworter oder schreiben Sie uns eine E-Mail.")
         var filtered_reviews = filterReviewsByMinRating(place.reviews);
         renderHeader(settings.header);
         renderReviews(filtered_reviews);
