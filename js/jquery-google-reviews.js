@@ -132,7 +132,6 @@ Thank you guys!
       }
       service.getDetails(request, callback);
     });
-
   };
 
 }(jQuery));
