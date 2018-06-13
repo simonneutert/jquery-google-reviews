@@ -2,7 +2,7 @@
 
 ## I do not like jQuery!!!1eleven
 
-The NPM Package is [here](https://github.com/simonneutert/google-maps-reviews) 
+The NPM Package is [here](https://github.com/simonneutert/google-maps-reviews) - Frontend Devs will know how to webpack :) or simply extract the code and adapt it to your needs, dropping jQuery as a dependency.
 
 ## Credits
 Inspired by Steven Monson's magnificent article here:
