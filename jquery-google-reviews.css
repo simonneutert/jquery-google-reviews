@@ -93,3 +93,13 @@
 .star:after {
   content: "\2605";
 }
+
+
+.more-reviews {
+  text-align: center;
+}
+
+.write-review {
+  text-align: center;
+}
+
