@@ -38,7 +38,7 @@ Thank you guys!
     };
 
     var renderWriteReviewButton = function() {
-      return '<div class="more-reviews"><a href="'+settings.write_review_button_url+'" target="_blank">'+settings.write_review_button_label+'</a></div>';   
+      return '<div class="write-review"><a href="'+settings.write_review_button_url+'" target="_blank">'+settings.write_review_button_label+'</a></div>';   
     };
 
     var renderHeader = function(header) {
