@@ -54,9 +54,9 @@ jQuery(document).ready(function($) {
     text_break_length: "90", // length before a review box is set to max width
     shorten_names: true, // example: "Max Mustermann" -> "Max M."",
     more_reviews_button_url: '', // url to google place reviews popup
-	  more_reviews_button_label: 'Show More Reviews',
-	  write_review_button_url: '', // url to google place write review popup
-	  write_review_button_label: 'Write New Review'
+    more_reviews_button_label: 'Show More Reviews',
+    write_review_button_url: '', // url to google place write review popup
+    write_review_button_label: 'Write New Review'
   });
 });
 </script>
