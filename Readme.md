@@ -31,6 +31,18 @@ https://www.launch2success.com/guide/display-google-reviews-website-2017/ or che
 * add an empty ***div*** element in your html template with an unique ID, where the reviews should show up. In this case:
 
   `<div id="google-reviews"></div>`
+  
+## How to get link to “View All Google Reviews” or "Write a review"
+
+* Step 1.  Open a browser, but don’t use Chrome.  You can use Firefox, or Edge, or even Internet Explorer but not Google Chrome because it alters the URL and your link will not work correctly.
+
+* Step 2. Go to [http://www.google.com]Google.com and search for your company’s name.
+
+* Step 3. Find the card on the right and click “View All Google Reviews” or "Write a review"
+
+* Step 4. Copy the URL in the address bar.
+
+* Step 5. Now paste the URL as a link on `more_reviews_button_url` or `write_review_button_url` param.
 
 ## Call the Plugin
 
