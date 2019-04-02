@@ -23,11 +23,23 @@ Thank you guys!
       months: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
       text_break_length: "90",
       shorten_names: true,
-      placeId: ""
+      placeId: "",
+      more_reviews_button_url: '',
+      more_reviews_button_label: 'Show More Review',
+      write_review_button_url: '',
+      write_review_button_label: 'Write New Review'
     }, options);
 
     var target_div = this[0];
     var target_div_jquery = this;
+
+    var renderMoreReviewsButton = function() {
+      return '<div class="more-reviews"><a href="'+settings.more_reviews_button_url+'" target="_blank">'+settings.more_reviews_button_label+'</a></div>';   
+    };
+
+    var renderWriteReviewButton = function() {
+      return '<div class="write-review"><a href="'+settings.write_review_button_url+'" target="_blank">'+settings.write_review_button_label+'</a></div>';   
+    };
 
     var renderHeader = function(header) {
       var html = "";
@@ -37,6 +49,10 @@ Thank you guys!
 
     var renderFooter = function(footer) {
       var html = "";
+
+      if(settings.more_reviews_button_url) html += "<br />" + renderMoreReviewsButton() + "<br />" ;
+      if(settings.write_review_button_url) html += "<br />" + renderWriteReviewButton() + "<br />" ;
+      
       html += "<br>" + footer + "<br>";
       target_div_jquery.after(html);
     };
