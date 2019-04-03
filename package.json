@@ -1,6 +1,6 @@
 {
   "name": "jquery-google-reviews",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "jQuery Plugin to display Google Reviews of a Place on Google Maps",
   "main": "jquery-google-reviews.js",
   "scripts": {
