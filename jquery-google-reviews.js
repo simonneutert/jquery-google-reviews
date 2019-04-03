@@ -50,11 +50,14 @@ Thank you guys!
     var renderFooter = function(footer) {
       var html = "";
       var htmlButtons = "";
-      
-      if (settings.moreReviewsButtonUrl) htmlButtons += renderMoreReviewsButton();
-      if (settings.writeReviewButtonUrl) htmlButtons += renderWriteReviewButton();
 
-      if(htmlButtons != ""){
+      if (settings.moreReviewsButtonUrl) {
+        htmlButtons += renderMoreReviewsButton();
+      }
+      if (settings.writeReviewButtonUrl) {
+        htmlButtons += renderWriteReviewButton();
+      }
+      if (htmlButtons != "") {
         html += '<div class="buttons">'+htmlButtons+'</div>';
       }
       
@@ -72,11 +75,11 @@ Thank you guys!
 
     var renderStars = function(rating) {
       var stars = '<div class="review-stars"><ul>';
-      // fill in gold stars
+      // fill gold stars
       for (var i = 0; i < rating; i++) {
         stars += '<li><i class="star"></i></li>';
       }
-      // fill in empty stars
+      // fill empty stars
       if (rating < 5) {
         for (var i = 0; i < (5 - rating); i++) {
           stars += '<li><i class="star inactive"></i></li>';
@@ -110,7 +113,7 @@ Thank you guys!
       reviews.reverse();
       var html = "";
       var rowCount = (settings.maxRows > 0) ? settings.maxRows - 1 : reviews.length - 1;
-      // make sure the rowCount is not greater than available records
+      
       rowCount = (rowCount > reviews.length - 1) ? reviews.length - 1 : rowCount;
       for (var i = rowCount; i >= 0; i--) {
         var stars = renderStars(reviews[i].rating);
