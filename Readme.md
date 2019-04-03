@@ -60,15 +60,15 @@ jQuery(document).ready(function($) {
     // the following params are optional (default values)
     header: "<h3>Google Reviews</h3>", // html/text over Reviews
     footer: '', // html/text under Reviews block
-    max_rows: 5, // max 5 rows of reviews to be displayed
-    min_rating: 4, // minimum rating of reviews to be displayed
+    maxRows: 5, // max 5 rows of reviews to be displayed
+    minRating: 4, // minimum rating of reviews to be displayed
     months: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
-    text_break_length: "90", // length before a review box is set to max width
-    shorten_names: true, // example: "Max Mustermann" -> "Max M."",
-    more_reviews_button_url: '', // url to Google Place reviews popup
-    more_reviews_button_label: 'Show More Reviews',
-    write_review_button_url: '', // url to Google Place write review popup
-    write_review_button_label: 'Write New Review'
+    textBreakLength: "90", // length before a review box is set to max width
+    shortenNames: true, // example: "Max Mustermann" -> "Max M."",
+    moreReviewsButtonUrl: '', // url to Google Place reviews popup
+    moreReviewsButtonLabel: 'Show More Reviews',
+    writeReviewButtonUrl: '', // url to Google Place write review popup
+    writeReviewButtonLabel: 'Write New Review'
   });
 });
 </script>
