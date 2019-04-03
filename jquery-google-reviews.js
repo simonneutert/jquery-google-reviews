@@ -50,10 +50,6 @@ Thank you guys!
     var renderFooter = function(footer) {
       var html = "";
 
-<<<<<<< HEAD
-      if(settings.more_reviews_button_url) html += "<br />" + renderMoreReviewsButton() + "<br />" ;
-      if(settings.write_review_button_url) html += "<br />" + renderWriteReviewButton() + "<br />" ;
-=======
       var htmlButtons = "";
       if(settings.more_reviews_button_url) htmlButtons += renderMoreReviewsButton();
       if(settings.write_review_button_url) htmlButtons += renderWriteReviewButton();
@@ -61,7 +57,6 @@ Thank you guys!
       if(htmlButtons != ""){
         html += '<div class="buttons">'+htmlButtons+'</div>';
       }
->>>>>>> 4eeff9c299e51b5718847673d14ef3d5cec58a73
       
       html += "<br>" + footer + "<br>";
       target_div_jquery.after(html);
