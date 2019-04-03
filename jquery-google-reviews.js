@@ -18,51 +18,51 @@ Thank you guys!
       // These are the defaults.
       header: "<h3>Google Reviews</h3>",
       footer: '',
-      max_rows: 6,
-      min_rating: 4,
+      maxRows: 6,
+      minRating: 4,
       months: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
-      text_break_length: "90",
-      shorten_names: true,
+      textBreakLength: "90",
+      shortenNames: true,
       placeId: "",
-      more_reviews_button_url: '',
-      more_reviews_button_label: 'Show More Review',
-      write_review_button_url: '',
-      write_review_button_label: 'Write New Review'
+      moreReviewsButtonUrl: '',
+      moreReviewsButtonLabel: 'Show More Review',
+      writeReviewButtonUrl: '',
+      writeReviewButtonLabel: 'Write New Review'
     }, options);
 
-    var target_div = this[0];
-    var target_div_jquery = this;
+    var targetDiv = this[0];
+    var targetDivJquery = this;
 
     var renderMoreReviewsButton = function() {
-      return '<div class="more-reviews"><a href="'+settings.more_reviews_button_url+'" target="_blank">'+settings.more_reviews_button_label+'</a></div>';   
+      return '<div class="more-reviews"><a href="'+settings.moreReviewsButtonUrl+'" target="_blank">'+settings.moreReviewsButtonLabel+'</a></div>';   
     };
 
     var renderWriteReviewButton = function() {
-      return '<div class="write-review"><a href="'+settings.write_review_button_url+'" target="_blank">'+settings.write_review_button_label+'</a></div>';   
+      return '<div class="write-review"><a href="'+settings.writeReviewButtonUrl+'" target="_blank">'+settings.writeReviewButtonLabel+'</a></div>';   
     };
 
     var renderHeader = function(header) {
       var html = "";
       html += header + "<br>";
-      target_div_jquery.append(html);
+      targetDivJquery.append(html);
     };
 
     var renderFooter = function(footer) {
       var html = "";
-
       var htmlButtons = "";
-      if(settings.more_reviews_button_url) htmlButtons += renderMoreReviewsButton();
-      if(settings.write_review_button_url) htmlButtons += renderWriteReviewButton();
+      
+      if (settings.moreReviewsButtonUrl) htmlButtons += renderMoreReviewsButton();
+      if (settings.writeReviewButtonUrl) htmlButtons += renderWriteReviewButton();
 
       if(htmlButtons != ""){
         html += '<div class="buttons">'+htmlButtons+'</div>';
       }
       
       html += "<br>" + footer + "<br>";
-      target_div_jquery.after(html);
+      targetDivJquery.after(html);
     };
 
-    var shorten_name = function(name) {
+    var shortenName = function(name) {
       if (name.split(" ").length > 1) {
         var shortenedName = "";
         shortenedName = name.split(" ");
@@ -98,7 +98,7 @@ Thank you guys!
         return [];
       } else {
         for (var i = reviews.length - 1; i >= 0; i--) {
-          if (reviews[i].rating < settings.min_rating) {
+          if (reviews[i].rating < settings.minRating) {
             reviews.splice(i, 1);
           }
         }
@@ -109,25 +109,25 @@ Thank you guys!
     var renderReviews = function(reviews) {
       reviews.reverse();
       var html = "";
-      var row_count = (settings.max_rows > 0) ? settings.max_rows - 1 : reviews.length - 1;
-      // make sure the row_count is not greater than available records
-      row_count = (row_count > reviews.length - 1) ? reviews.length - 1 : row_count;
-      for (var i = row_count; i >= 0; i--) {
+      var rowCount = (settings.maxRows > 0) ? settings.maxRows - 1 : reviews.length - 1;
+      // make sure the rowCount is not greater than available records
+      rowCount = (rowCount > reviews.length - 1) ? reviews.length - 1 : rowCount;
+      for (var i = rowCount; i >= 0; i--) {
         var stars = renderStars(reviews[i].rating);
         var date = convertTime(reviews[i].time);
-        var name = settings.shorten_names ? shorten_name(reviews[i].author_name) : reviews[i].author_name;
-        var style = (reviews[i].text.length > parseInt(settings.text_break_length)) ? "review-item-long" : "review-item";
+        var name = settings.shortenNames ? shortenName(reviews[i].author_name) : reviews[i].author_name;
+        var style = (reviews[i].text.length > parseInt(settings.textBreakLength)) ? "review-item-long" : "review-item";
         html = html + "<div class="+ style +"><div class='review-meta'><span class='review-author'>" + name + "</span><span class='review-sep'></span>" + "</div>" + stars + "<p class='review-text'>" + reviews[i].text + "</p></div>";
         // I do not need to display the date... but if you do:
         // +"<br><span class='review-date'>"+date+"</span>"+
       }
-      target_div_jquery.append(html);
+      targetDivJquery.append(html);
     };
 
     // GOOGLE PLACES API CALL STARTS HERE
 
     // initiate a Google Places Object
-    var service = new google.maps.places.PlacesService(target_div);
+    var service = new google.maps.places.PlacesService(targetDiv);
     // set.getDetails takes 2 arguments: request, callback
     // see documentation here:  https://developers.google.com/maps/documentation/javascript/3.exp/reference#PlacesService
     const request = {
@@ -136,10 +136,10 @@ Thank you guys!
     // the callback is what initiates the rendering if Status returns OK
     var callback = function(place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        var filtered_reviews = filterReviewsByMinRating(place.reviews);
-        if (filtered_reviews.length > 0) {
+        var filteredReviews = filterReviewsByMinRating(place.reviews);
+        if (filteredReviews.length > 0) {
           renderHeader(settings.header);
-          renderReviews(filtered_reviews);
+          renderReviews(filteredReviews);
           renderFooter(settings.footer);
         }
       }
