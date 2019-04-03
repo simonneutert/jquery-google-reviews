@@ -95,6 +95,17 @@
 }
 
 
+<<<<<<< HEAD
+=======
+.buttons {
+  margin: 20px 0 0 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+>>>>>>> 4eeff9c299e51b5718847673d14ef3d5cec58a73
 .more-reviews {
   text-align: center;
 }
@@ -103,3 +114,17 @@
   text-align: center;
 }
 
+<<<<<<< HEAD
+=======
+.more-reviews a,
+.write-review a {
+  margin: 5px;
+  border: 1px #eb6e00 solid;
+  border-radius: 40px;
+  padding: 10px;
+  background-color: #eb6e00;
+  color: #FFF;
+  text-decoration: none;
+}
+
+>>>>>>> 4eeff9c299e51b5718847673d14ef3d5cec58a73
