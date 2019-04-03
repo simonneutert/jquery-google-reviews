@@ -64,9 +64,9 @@ Thank you guys!
 
     var shorten_name = function(name) {
       if (name.split(" ").length > 1) {
-        var xname = "";
-        xname = name.split(" ");
-        return xname[0] + " " + xname[1][0] + ".";
+        var shortenedName = "";
+        shortenedName = name.split(" ");
+        return shortenedName[0] + " " + shortenedName[1][0] + ".";
       }
     };
 
@@ -87,9 +87,9 @@ Thank you guys!
     };
 
     var convertTime = function(UNIX_timestamp) {
-      var a = new Date(UNIX_timestamp * 1000);
+      var newDate = new Date(UNIX_timestamp * 1000);
       var months = settings.months;
-      var time = a.getDate() + ". " + months[a.getMonth()] + " " + a.getFullYear();
+      var time = newDate.getDate() + ". " + months[newDate.getMonth()] + " " + newDate.getFullYear();
       return time;
     };
 
