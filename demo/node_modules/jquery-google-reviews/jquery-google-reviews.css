@@ -95,11 +95,30 @@
 }
 
 
+.buttons {
+  margin: 20px 0 0 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .more-reviews {
   text-align: center;
 }
 
 .write-review {
   text-align: center;
+}
+
+.more-reviews a,
+.write-review a {
+  margin: 5px;
+  border: 1px #eb6e00 solid;
+  border-radius: 40px;
+  padding: 10px;
+  background-color: #eb6e00;
+  color: #FFF;
+  text-decoration: none;
 }
 
