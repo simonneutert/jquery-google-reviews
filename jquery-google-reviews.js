@@ -120,9 +120,7 @@ Thank you guys!
         var date = convertTime(reviews[i].time);
         var name = settings.shortenNames ? shortenName(reviews[i].author_name) : reviews[i].author_name;
         var style = (reviews[i].text.length > parseInt(settings.textBreakLength)) ? "review-item-long" : "review-item";
-        html = html + "<div class="+ style +"><div class='review-meta'><span class='review-author'>" + name + "</span><span class='review-sep'></span>" + "</div>" + stars + "<p class='review-text'>" + reviews[i].text + "</p></div>";
-        // I do not need to display the date... but if you do:
-        // +"<br><span class='review-date'>"+date+"</span>"+
+        html = html + "<div class="+ style +"><div class='review-meta'><span class='review-author'>" + name + "</span> "+" <span class='review-date'>" + date + "</span>" + <span class='review-sep'></span>" + "</div>" + stars + "<p class='review-text'>" + reviews[i].text + "</p></div>";
       }
       targetDivJquery.append(html);
     };
