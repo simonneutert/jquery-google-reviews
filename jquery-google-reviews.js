@@ -25,7 +25,7 @@ Thank you guys!
       shortenNames: true,
       placeId: "",
       moreReviewsButtonUrl: '',
-      moreReviewsButtonLabel: 'Show More Review',
+      moreReviewsButtonLabel: 'Show More Reviews',
       writeReviewButtonUrl: '',
       writeReviewButtonLabel: 'Write New Review'
     }, options);
@@ -75,11 +75,11 @@ Thank you guys!
 
     var renderStars = function(rating) {
       var stars = '<div class="review-stars"><ul>';
-      // fill gold stars
+      // fills gold stars
       for (var i = 0; i < rating; i++) {
         stars += '<li><i class="star"></i></li>';
       }
-      // fill empty stars
+      // fills empty stars
       if (rating < 5) {
         for (var i = 0; i < (5 - rating); i++) {
           stars += '<li><i class="star inactive"></i></li>';
