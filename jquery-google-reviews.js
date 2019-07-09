@@ -109,6 +109,14 @@ Thank you guys!
       }
     };
 
+    var sortReviewsByDateDesc = function(reviews) {
+      if (typeof reviews != "undefined" && reviews != null && reviews.length != null && reviews.length > 0) {
+        return reviews.sort(function(a,b) {return (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0);} ).reverse();
+      } else {
+        return []
+      }
+    }
+
     var renderReviews = function(reviews) {
       reviews.reverse();
       var html = "";
@@ -140,9 +148,10 @@ Thank you guys!
     var callback = function(place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         var filteredReviews = filterReviewsByMinRating(place.reviews);
-        if (filteredReviews.length > 0) {
+        var sortedReviews = sortReviewsByDateDesc(filteredReviews);
+        if (sortedReviews.length > 0) {
           renderHeader(settings.header);
-          renderReviews(filteredReviews);
+          renderReviews(sortedReviews);
           renderFooter(settings.footer);
         }
       }
