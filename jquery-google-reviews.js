@@ -20,14 +20,15 @@ Thank you guys!
       footer: '',
       maxRows: 6,
       minRating: 4,
-      months: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+      months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       textBreakLength: "90",
       shortenNames: true,
       placeId: "",
       moreReviewsButtonUrl: '',
       moreReviewsButtonLabel: 'Show More Reviews',
       writeReviewButtonUrl: '',
-      writeReviewButtonLabel: 'Write New Review'
+      writeReviewButtonLabel: 'Write New Review',
+      showReviewDate: false
     }, options);
 
     var targetDiv = this[0];
@@ -69,7 +70,17 @@ Thank you guys!
       if (name.split(" ").length > 1) {
         var shortenedName = "";
         shortenedName = name.split(" ");
-        return shortenedName[0] + " " + shortenedName[1][0] + ".";
+        var lastNameFirstLetter = shortenedName[1][0];
+        var firstName = shortenedName[0];
+        if (lastNameFirstLetter == ".") {
+          return firstName;
+        } else {
+          return firstName + " " + lastNameFirstLetter + ".";
+        }
+      } else if (name != undefined) {
+        return name;
+      } else {
+        return '';
       }
     };
 
@@ -101,7 +112,8 @@ Thank you guys!
         return [];
       } else {
         for (var i = reviews.length - 1; i >= 0; i--) {
-          if (reviews[i].rating < settings.minRating) {
+          var review = reviews[i];
+          if (review.rating < settings.minRating) {
             reviews.splice(i, 1);
           }
         }
@@ -124,11 +136,13 @@ Thank you guys!
       
       rowCount = (rowCount > reviews.length - 1) ? reviews.length - 1 : rowCount;
       for (var i = rowCount; i >= 0; i--) {
-        var stars = renderStars(reviews[i].rating);
-        var date = convertTime(reviews[i].time);
-        var name = settings.shortenNames ? shortenName(reviews[i].author_name) : reviews[i].author_name;
-        var style = (reviews[i].text.length > parseInt(settings.textBreakLength)) ? "review-item-long" : "review-item";
-        html = html + "<div class="+ style +"><div class='review-meta'><span class='review-author'>" + name + "</span><span class='review-sep'></span>" + "</div>" + stars + "<p class='review-text'>" + reviews[i].text + "</p></div>";
+        var review = reviews[i];
+        var stars = renderStars(review.rating);
+        var date = convertTime(review.time);
+        var name = settings.shortenNames ? shortenName(review.author_name) : review.author_name;
+        var style = (review.text.length > parseInt(settings.textBreakLength)) ? "review-item-long" : "review-item";
+        
+        html = html + "<div class="+ style +"><div class='review-meta'><span class='review-author'>" + name + "</span><span class='review-sep'></span>" + "</div>" + stars + "<p class='review-text'>" + review.text + "</p></div>";
         // I do not need to display the date... but if you do:
         // +"<br><span class='review-date'>"+date+"</span>"+
       }
