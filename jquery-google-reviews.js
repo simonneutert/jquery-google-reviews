@@ -28,7 +28,8 @@ Thank you guys!
       moreReviewsButtonLabel: 'Show More Reviews',
       writeReviewButtonUrl: '',
       writeReviewButtonLabel: 'Write New Review',
-      showReviewDate: false
+      showReviewDate: false,
+      showProfilePicture: true
     }, options);
 
     var targetDiv = this[0];
@@ -41,6 +42,10 @@ Thank you guys!
     var renderWriteReviewButton = function() {
       return '<div class="write-review"><a href="'+settings.writeReviewButtonUrl+'" target="_blank">'+settings.writeReviewButtonLabel+'</a></div>';   
     };
+
+    var renderPicture = function(picture) {
+      return "<img class='review-picture' src='"+picture+"'>";
+    }
 
     var renderHeader = function(header) {
       var html = "";
@@ -142,7 +147,10 @@ Thank you guys!
         var name = settings.shortenNames ? shortenName(review.author_name) : review.author_name;
         var style = (review.text.length > parseInt(settings.textBreakLength)) ? "review-item-long" : "review-item";
         
-        html = html + "<div class="+ style +"><div class='review-meta'><span class='review-author'>" + name + "</span><span class='review-sep'></span>" + "</div>" + stars + "<p class='review-text'>" + review.text + "</p></div>";
+        var picture = "";
+        if(settings.showProfilePicture) picture = renderPicture(review.profile_photo_url); 
+
+        html = html + "<div class="+ style +"><div class='review-header'>"+ picture +"<div class='review-usergrade'><div class='review-meta'><span class='review-author'>" + name + "</span><span class='review-sep'></span>" + "</div>" + stars + "</div></div><p class='review-text'>" + review.text + "</p></div>";
         // I do not need to display the date... but if you do:
         // +"<br><span class='review-date'>"+date+"</span>"+
       }
