@@ -148,7 +148,9 @@ Thank you guys!
         var style = (review.text.length > parseInt(settings.textBreakLength)) ? "review-item-long" : "review-item";
         
         var picture = "";
-        if(settings.showProfilePicture) picture = renderPicture(review.profile_photo_url); 
+        if(settings.showProfilePicture) {
+          picture = renderPicture(review.profile_photo_url); 
+        }
 
         html = html + "<div class="+ style +"><div class='review-header'>"+ picture +"<div class='review-usergrade'><div class='review-meta'><span class='review-author'>" + name + "</span><span class='review-sep'></span>" + "</div>" + stars + "</div></div><p class='review-text'>" + review.text + "</p></div>";
         // I do not need to display the date... but if you do:

@@ -68,7 +68,8 @@ jQuery(document).ready(function($) {
     moreReviewsButtonUrl: '', // url to Google Place reviews popup
     moreReviewsButtonLabel: 'Show More Reviews',
     writeReviewButtonUrl: '', // url to Google Place write review popup
-    writeReviewButtonLabel: 'Write New Review'
+    writeReviewButtonLabel: 'Write New Review',
+    showProfilePicture: true
   });
 });
 </script>
