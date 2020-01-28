@@ -134,6 +134,12 @@ Thank you guys!
       }
     }
 
+    var sanitizedReviewText = function(text) {
+      text = text.replace("<script>", "");
+      text = text.replace("<iframe>", "");
+      return text
+    }
+
     var renderReviews = function(reviews) {
       reviews.reverse();
       var html = "";
@@ -142,17 +148,18 @@ Thank you guys!
       rowCount = (rowCount > reviews.length - 1) ? reviews.length - 1 : rowCount;
       for (var i = rowCount; i >= 0; i--) {
         var review = reviews[i];
+        var reviewText = sanitizedReviewText(review.text);
         var stars = renderStars(review.rating);
         var date = convertTime(review.time);
         var name = settings.shortenNames ? shortenName(review.author_name) : review.author_name;
-        var style = (review.text.length > parseInt(settings.textBreakLength)) ? "review-item-long" : "review-item";
+        var style = (reviewText.length > parseInt(settings.textBreakLength)) ? "review-item-long" : "review-item";
         
         var picture = "";
         if(settings.showProfilePicture) {
           picture = renderPicture(review.profile_photo_url); 
         }
 
-        html = html + "<div class="+ style +"><div class='review-header'>"+ picture +"<div class='review-usergrade'><div class='review-meta'><span class='review-author'>" + name + "</span><span class='review-sep'></span>" + "</div>" + stars + "</div></div><p class='review-text'>" + review.text + "</p></div>";
+        html = html + "<div class="+ style +"><div class='review-header'>"+ picture +"<div class='review-usergrade'><div class='review-meta'><span class='review-author'>" + name + "</span><span class='review-sep'></span>" + "</div>" + stars + "</div></div><p class='review-text'>" + reviewText + "</p></div>";
         // I do not need to display the date... but if you do:
         // +"<br><span class='review-date'>"+date+"</span>"+
       }
