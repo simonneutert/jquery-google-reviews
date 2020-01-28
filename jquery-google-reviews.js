@@ -147,6 +147,7 @@ Thank you guys!
       
       rowCount = (rowCount > reviews.length - 1) ? reviews.length - 1 : rowCount;
       for (var i = rowCount; i >= 0; i--) {
+        var picture = "";
         var review = reviews[i];
         var reviewText = sanitizedReviewText(review.text);
         var stars = renderStars(review.rating);
@@ -154,7 +155,6 @@ Thank you guys!
         var name = settings.shortenNames ? shortenName(review.author_name) : review.author_name;
         var style = (reviewText.length > parseInt(settings.textBreakLength)) ? "review-item-long" : "review-item";
         
-        var picture = "";
         if(settings.showProfilePicture) {
           picture = renderPicture(review.profile_photo_url); 
         }
@@ -175,6 +175,7 @@ Thank you guys!
     const request = {
       placeId: settings.placeId
     };
+
     // the callback is what initiates the rendering if Status returns OK
     var callback = function(place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
