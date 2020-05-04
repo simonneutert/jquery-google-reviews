@@ -77,3 +77,5 @@ jQuery(document).ready(function($) {
 
 ## Are Pull Requests welcome?
 Yes, of course :octocat:
+
+**You do not need to update the demo folder!** I will do this, when your code was merged.
