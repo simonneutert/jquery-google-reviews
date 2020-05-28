@@ -159,6 +159,10 @@ Thank you guys!
           picture = renderPicture(review.profile_photo_url); 
         }
 
+        if (settings.showReviewDate == true) {
+          review_text = "<span class='review-date'>" + date + "</span> " + review_text;
+        }
+
         html = html + "<div class="+ style +"><div class='review-header'>"+ picture +"<div class='review-usergrade'><div class='review-meta'><span class='review-author'>" + name + "</span><span class='review-sep'></span>" + "</div>" + stars + "</div></div><p class='review-text'>" + reviewText + "</p></div>";
         // I do not need to display the date... but if you do:
         // +"<br><span class='review-date'>"+date+"</span>"+
