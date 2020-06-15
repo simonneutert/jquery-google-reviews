@@ -20,7 +20,7 @@ https://www.launch2success.com/guide/display-google-reviews-website-2017/ or che
 
 * add the .js and .css of this repo to your project (see ./demo/index.html for inspiration :wink:)
 
-* ___if you do not have a working Google Maps API key already:___ create a Google API Key: [https://console.developers.google.com/apis/](https://console.developers.google.com/apis/)
+* ___if you do not have a working Google Maps API key already:___ create a Google API Key: [https://console.developers.google.com/apis/](https://console.developers.google.com/apis/) **make sure to set a limit to your payments**
 
 * add the following line with your  Google Maps API key with the key param:
 
