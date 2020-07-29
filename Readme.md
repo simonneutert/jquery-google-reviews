@@ -1,5 +1,7 @@
 # jQuery Plugin to display Google Reviews of a Place on Google Maps
 
+this will get the 5 reviews, google offers you. if you need more, let me direct you a bit: https://developers.google.com/my-business/content/review-data#list_all_reviews - but this will be a different project all by its own
+
 ## I do not like jQuery!!!1eleven
 
 The NPM Package is [here](https://github.com/simonneutert/google-maps-reviews) - Frontend Devs will know how to webpack :) or simply extract the code and adapt it to your needs, dropping jQuery as a dependency.
