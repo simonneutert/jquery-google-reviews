@@ -36,6 +36,9 @@ https://www.launch2success.com/guide/display-google-reviews-website-2017/ or che
   
 ## How to get link to “View All Google Reviews” or "Write a review"
 
+Please see the official Documents for this topic:  
+https://developers.google.com/my-business/content/review-data#list_all_reviews
+
 * Step 1.  Open a browser, but don’t use Chrome.  You can use Firefox, or Edge, or even Internet Explorer but not Google Chrome because it alters the URL and your link will not work correctly.
 
 * Step 2. Go to [Google.com](http://www.google.com) and search for your company’s name.
