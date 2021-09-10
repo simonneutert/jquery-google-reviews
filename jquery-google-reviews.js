@@ -116,7 +116,7 @@ Thank you guys!
       }
     };
 
-    var renderStars = function (rating) {
+    var renderStarsReviews = function (rating) {
       var stars = '<div class="review-stars"><ul>';
       // fills gold stars
       for (var i = 0; i < rating; i++) {
@@ -129,6 +129,38 @@ Thank you guys!
         }
       }
       stars += "</ul></div>";
+      return stars;
+    };
+
+    var renderStarsPlace = function (rating) {
+      var stars;
+      stars = '<div class="rating-stars"><ul>';
+
+      // fills gold stars
+      for (var i = 0; i < Math.floor(rating); i++) {
+        stars += '<li><i class="star"></i></li>';
+      }
+      // fills empty stars
+      if (rating < 5) {
+        // rating is i.e. parseFloat("4.0")
+        if (rating % 1 === 0) {
+          addInactiveStar(stars, 5, rating);
+        }
+        // rating is a Float
+        else {
+          stars += '<li><i class="star half-inactive"></i></li>';
+          addInactiveStar(stars, 4, rating);
+        }
+      }
+
+      stars += "</ul></div>";
+      return stars;
+    };
+
+    var addInactiveStar = function (stars, limit, rating) {
+      for (var i = 0; i < limit - rating; i++) {
+        stars += '<li><i class="star inactive"></i></li>';
+      }
       return stars;
     };
 
@@ -192,7 +224,7 @@ Thank you guys!
         var picture = "";
         var review = reviews[i];
         var reviewText = sanitizedReviewText(review.text);
-        var stars = renderStars(review.rating);
+        var stars = renderStarsReviews(review.rating);
         var date = convertTime(review.time);
         var name = settings.shortenNames
           ? shortenName(review.author_name)
