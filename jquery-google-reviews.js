@@ -34,7 +34,10 @@ Thank you guys!
           "Nov",
           "Dec",
         ],
+        renderAverage: false,
+        renderReviews: true,
         textBreakLength: "90",
+        ratingsText: "ratings",
         shortenNames: true,
         placeId: "",
         moreReviewsButtonUrl: "",
@@ -213,6 +216,30 @@ Thank you guys!
       return text;
     };
 
+    var renderPlaceAverageRatingWithStars = function (place) {
+      if (!settings.renderAverage) {
+        return;
+      }
+
+      var html = "";
+      var name = place.name;
+      var rating = Math.round(place.rating * 2) / 2;
+      var stars = renderStars(rating, 0);
+      html +=
+        "<a href='" +
+        place.url +
+        "'><h4>" +
+        name +
+        "</h4> <div>" +
+        stars +
+        "</div><div class='reviews-counts'>" +
+        place.user_ratings_total +
+        " " +
+        settings.ratingsText;
+      ("</div></a>");
+      targetDivJquery.append(html);
+    };
+
     var renderReviews = function (reviews) {
       reviews.reverse();
       var html = "";
@@ -280,6 +307,7 @@ Thank you guys!
         var sortedReviews = sortReviewsByDateDesc(filteredReviews);
         if (sortedReviews.length > 0) {
           renderHeader(settings.header);
+          renderPlaceAverageRatingWithStars(place);
           renderReviews(sortedReviews);
           renderFooter(settings.footer);
         }

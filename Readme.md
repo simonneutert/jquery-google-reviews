@@ -82,6 +82,8 @@ https://developers.google.com/my-business/content/review-data#list_all_reviews
         "Nov",
         "Dez",
       ],
+      renderAverage: false, // render average reviews and stars
+      renderReviews: true, // render reviews
       textBreakLength: "90", // length before a review box is set to max width
       shortenNames: true, // example: "Max Mustermann" -> "Max M."",
       moreReviewsButtonUrl: "", // url to Google Place reviews popup
