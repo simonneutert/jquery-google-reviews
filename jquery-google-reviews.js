@@ -11,7 +11,7 @@ Thank you guys!
 */
 
 (function ($) {
-  $.fn.googlePlaces = function (options) {
+  $.fn.googlePlaceReviews = function (options) {
     // This is the easiest way to have default options.
     var settings = $.extend(
       {
@@ -34,7 +34,10 @@ Thank you guys!
           "Nov",
           "Dec",
         ],
+        renderAverage: false,
+        renderReviews: true,
         textBreakLength: "90",
+        ratingsText: "ratings",
         shortenNames: true,
         placeId: "",
         moreReviewsButtonUrl: "",
@@ -116,7 +119,7 @@ Thank you guys!
       }
     };
 
-    var renderStars = function (rating) {
+    var renderStarsReviews = function (rating) {
       var stars = '<div class="review-stars"><ul>';
       // fills gold stars
       for (var i = 0; i < rating; i++) {
@@ -129,6 +132,38 @@ Thank you guys!
         }
       }
       stars += "</ul></div>";
+      return stars;
+    };
+
+    var renderStarsPlace = function (rating) {
+      var stars;
+      stars = '<div class="rating-stars"><ul>';
+
+      // fills gold stars
+      for (var i = 0; i < Math.floor(rating); i++) {
+        stars += '<li><i class="star"></i></li>';
+      }
+      // fills empty stars
+      if (rating < 5) {
+        // rating is i.e. parseFloat("4.0")
+        if (rating % 1 === 0) {
+          addInactiveStar(stars, 5, rating);
+        }
+        // rating is a Float
+        else {
+          stars += '<li><i class="star half-inactive"></i></li>';
+          addInactiveStar(stars, 4, rating);
+        }
+      }
+
+      stars += "</ul></div>";
+      return stars;
+    };
+
+    var addInactiveStar = function (stars, limit, rating) {
+      for (var i = 0; i < limit - rating; i++) {
+        stars += '<li><i class="star inactive"></i></li>';
+      }
       return stars;
     };
 
@@ -181,6 +216,30 @@ Thank you guys!
       return text;
     };
 
+    var renderPlaceAverageRatingWithStars = function (place) {
+      if (!settings.renderAverage) {
+        return;
+      }
+
+      var html = "";
+      var name = place.name;
+      var rating = Math.round(place.rating * 2) / 2;
+      var stars = renderStars(rating, 0);
+      html +=
+        "<a href='" +
+        place.url +
+        "'><h4>" +
+        name +
+        "</h4> <div>" +
+        stars +
+        "</div><div class='reviews-counts'>" +
+        place.user_ratings_total +
+        " " +
+        settings.ratingsText;
+      ("</div></a>");
+      targetDivJquery.append(html);
+    };
+
     var renderReviews = function (reviews) {
       reviews.reverse();
       var html = "";
@@ -192,7 +251,7 @@ Thank you guys!
         var picture = "";
         var review = reviews[i];
         var reviewText = sanitizedReviewText(review.text);
-        var stars = renderStars(review.rating);
+        var stars = renderStarsReviews(review.rating);
         var date = convertTime(review.time);
         var name = settings.shortenNames
           ? shortenName(review.author_name)
@@ -248,6 +307,7 @@ Thank you guys!
         var sortedReviews = sortReviewsByDateDesc(filteredReviews);
         if (sortedReviews.length > 0) {
           renderHeader(settings.header);
+          renderPlaceAverageRatingWithStars(place);
           renderReviews(sortedReviews);
           renderFooter(settings.footer);
         }
