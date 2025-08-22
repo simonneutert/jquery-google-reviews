@@ -2,6 +2,14 @@
 
 this will get the 5 reviews, google offers you. 
 
+---
+
+> [!IMPORTANT]
+> This project is unmaintained and archived.  
+> Nevertheless, it remains a valuable guide for those who need to implement a similar solution in their projects.
+
+---
+
 #### But I need more than 5 reviews!
 
 if you need more, let me direct you a bit: https://developers.google.com/my-business/content/review-data#list_all_reviews - but this will be a different project all by its own
